@@ -35,7 +35,22 @@ for(let num of arr){
 }
     */
 
-let repeat=arr.filter((num,i)=>arr.indexOf(num) !== i);
-let nonRepeat=arr.filter((num)=>arr.indexOf(num) === arr.lastIndexOf(num));
+// let repeat=arr.filter((num,i)=>arr.indexOf(num) !== i);
+// let nonRepeat=arr.filter((num)=>arr.indexOf(num) === arr.lastIndexOf(num));
+
+let freq={};
+let repeat=[];
+let nonRepeat=[];
+for(let num of arr){
+    freq[num]=(freq[num]||0)+1;
+}
+for(let num of arr){
+    if(freq[num]>1){
+        repeat.push(num);
+    }
+    else{
+        nonRepeat.push(num);
+    }   
+}
 console.log("Repeat",repeat);
 console.log("NonRepeat",nonRepeat);
